@@ -1,7 +1,8 @@
 import os
 import sys
-from larango import find_all_commands
+from larango import VERSION, find_all_commands
 from larango.commands import BaseCommand
+from larango.utils.colors import Color
 
 class Command(BaseCommand):
     
@@ -14,10 +15,18 @@ class Command(BaseCommand):
         if prog_name == '__main__.py':
             prog_name = 'python -m larango'
         
-        print('usage: %s command [options] [args]' % prog_name)
-        print('Larango command line tools.')
-        print('commands:')
+        print('Larango Framework ' + Color.green(VERSION))
+        print(Color.blue('Larango command line tools\n'))
+        
+        print(Color.yellow('Usage:'))
+        print('    %s command [options] [arguments]\n' % prog_name)
+        
+        print(Color.yellow('Options:'))
+        print(Color.green('    -h, --help'))
+        print()
+        
+        print(Color.yellow('Commands:'))
         
         commands = find_all_commands()
         for cmd in commands:
-            print('\t'+cmd)
+            print('    '+Color.green(cmd))

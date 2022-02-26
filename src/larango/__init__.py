@@ -9,6 +9,7 @@ import os
 import pkgutil
 import django
 
+VERSION = '0.1.0'
 
 def execute_from_command_line(argv=None):
     argv = argv or sys.argv[:]
